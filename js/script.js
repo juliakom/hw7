@@ -46,14 +46,14 @@ const arrFour = [...Array(10)].map(() =>
   Math.floor(Math.random() * 10));
 console.log(arrFour);
 
-let sum = 0;
-function sumArr(arr, index = 0,) {
-  sum += arr[index];
-  if (index < arr.length - 1) {
-    sumArr(arr, ++index);
-  }
-  return sum;
+function sumArr(arr) {
+	let sum = arr.shift();
+	if (arr.length !== 0) {
+		sum += sumArr(arr);
+	}
+	return sum;
 }
+
 console.log(sumArr(arrFour));
 
 //5-------------------------------------------------
